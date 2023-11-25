@@ -15,6 +15,18 @@ const produtos = [
     preco: 19.99,
   },
 ];
+const ProductList = ({ produtos }) => {
+  return (
+    <ul>
+      {produtos.map((produto) => (
+        <li key={produto.id}>
+          <strong>{produto.nome}</strong>: R$ {produto.preco.toFixed(2)}
+        </li>
+      ))}
+    </ul>
+  );
+};
+
 
 export default function Questao4() {
   return (
@@ -25,6 +37,9 @@ export default function Questao4() {
         objetos de produto e renderiza uma lista de produtos. Cada produto deve
         exibir seu nome e preço.
       </p>
+
+      {/* Renderiza o componente ProductList e passa a matriz de produtos como propriedade */}
+      <ProductList produtos={produtos} />
     </>
   );
 }
